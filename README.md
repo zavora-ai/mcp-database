@@ -126,6 +126,55 @@ cargo install mcp-database
 → run_migration(name="add_email_verified", sql_up="ALTER TABLE users ADD COLUMN email_verified BOOLEAN DEFAULT false")
 ```
 
+## Testing
+
+### Quick test (mock backend)
+
+```bash
+./test/run_tests.sh
+# → 22/22 passed
+```
+
+### Full lifecycle test (real SQLite)
+
+```bash
+# Terminal 1: Start real SQLite backend
+cd test && python3 test_sqlite_backend.py
+
+# Terminal 2: Run lifecycle test
+cd test && python3 test_lifecycle.py
+```
+
+Output:
+```
+  ✅ 📦 CREATE TABLE users (0.48ms)
+  ✅ 📦 CREATE TABLE orders (FK → users) (0.53ms)
+  ✅ ➕ INSERT Alice (enterprise) → 1 row(s)
+  ✅ ➕ INSERT Bob (pro) → 1 row(s)
+  ✅ ➕ INSERT Carol (enterprise) → 1 row(s)
+  ✅ ➕ INSERT order: Alice → Pro Plan $49 → 1 row(s)
+  ✅ ➕ INSERT order: Alice → Enterprise Addon $99 → 1 row(s)
+  ✅ ➕ INSERT order: Bob → Pro Plan $49 → 1 row(s)
+  ✅ 📋 LIST TABLES → [_migrations, users, orders]
+  ✅ 🔍 DESCRIBE users → (id, email, name, plan, created_at)
+  ✅ 🔗 GET RELATIONSHIPS (orders → users)
+  ✅ 📊 QUERY: revenue per user (JOIN + GROUP BY) → 3 rows
+  ✅ 📊 QUERY: completed orders → 2 rows
+  ✅ ⚡ CREATE INDEX orders(user_id) → idx_orders_user_id
+  ✅ 📈 EXPLAIN → SEARCH orders USING INDEX idx_orders_user_id
+  ✅ 📊 COLUMN STATS: users.plan → enterprise=2, pro=1
+  ✅ 💾 DATABASE STATS → 8 rows across 3 tables
+  ✅ 🗺️  ER DIAGRAM → 3 tables, 1 relationship
+  ✅ 👀 SAMPLE DATA: users → 3 rows
+  ✅ 📜 MIGRATION HISTORY → 2 migrations
+  ✅ 🗑️  DROP TABLE orders
+  ✅ 🗑️  DROP TABLE users
+  ✅ 📋 VERIFY TABLES DROPPED → [_migrations]
+
+  Results: 23/23 passed
+  🎉 Full lifecycle complete!
+```
+
 ## Governance
 
 - **Read-only by default** — `query` tool only allows SELECT statements
