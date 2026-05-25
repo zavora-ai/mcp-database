@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="system-ui,-apple-system,sans-serif" font-size="13">
+  <defs>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" rx="12" fill="#0f172a"/>
+  <text x="480" y="28" text-anchor="middle" fill="#94a3b8" font-size="11">MCP DATABASE — QUERY, SCHEMA, MIGRATIONS, PERFORMANCE</text>
+
+  <!-- Clients -->
+  <rect x="20" y="110" width="130" height="150" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="85" y="130" text-anchor="middle" fill="#94a3b8" font-size="10">MCP CLIENTS</text>
+  <rect x="30" y="145" width="110" height="20" rx="3" fill="#334155"/>
+  <text x="85" y="159" text-anchor="middle" fill="#f1f5f9" font-size="9">Claude / Kiro</text>
+  <rect x="30" y="170" width="110" height="20" rx="3" fill="#334155"/>
+  <text x="85" y="184" text-anchor="middle" fill="#f1f5f9" font-size="9">Cursor / Codex</text>
+  <rect x="30" y="195" width="110" height="20" rx="3" fill="#334155"/>
+  <text x="85" y="209" text-anchor="middle" fill="#f1f5f9" font-size="9">Windsurf</text>
+
+  <line x1="150" y1="185" x2="195" y2="185" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="195,180 205,185 195,190" fill="#6366f1"/>
+
+  <!-- Server -->
+  <rect x="205" y="45" width="360" height="340" rx="8" fill="url(#dbGrad)" opacity="0.08" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="385" y="67" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="bold">mcp-database</text>
+  <text x="385" y="83" text-anchor="middle" fill="#64748b" font-size="9">Rust · rmcp 1.7 · 22 tools</text>
+
+  <rect x="217" y="95" width="168" height="60" rx="4" fill="#1e293b"/>
+  <text x="301" y="111" text-anchor="middle" fill="#60a5fa" font-size="9">SCHEMA (6)</text>
+  <text x="301" y="126" text-anchor="middle" fill="#64748b" font-size="8">tables · describe · relationships</text>
+  <text x="301" y="138" text-anchor="middle" fill="#64748b" font-size="8">indexes · stats · search</text>
+
+  <rect x="391" y="95" width="162" height="60" rx="4" fill="#1e293b"/>
+  <text x="472" y="111" text-anchor="middle" fill="#34d399" font-size="9">QUERY (5)</text>
+  <text x="472" y="126" text-anchor="middle" fill="#64748b" font-size="8">query · sample · filter</text>
+  <text x="472" y="138" text-anchor="middle" fill="#64748b" font-size="8">explain · column stats</text>
+
+  <rect x="217" y="163" width="168" height="55" rx="4" fill="#1e293b"/>
+  <text x="301" y="179" text-anchor="middle" fill="#fbbf24" font-size="9">WRITE (4)</text>
+  <text x="301" y="194" text-anchor="middle" fill="#64748b" font-size="8">execute · create index</text>
+  <text x="301" y="206" text-anchor="middle" fill="#64748b" font-size="8">run migration · history</text>
+
+  <rect x="391" y="163" width="162" height="55" rx="4" fill="#1e293b"/>
+  <text x="472" y="179" text-anchor="middle" fill="#f87171" font-size="9">PERFORMANCE (4)</text>
+  <text x="472" y="194" text-anchor="middle" fill="#64748b" font-size="8">slow queries · connections</text>
+  <text x="472" y="206" text-anchor="middle" fill="#64748b" font-size="8">maintenance · index usage</text>
+
+  <rect x="217" y="226" width="336" height="45" rx="4" fill="#1e293b"/>
+  <text x="385" y="242" text-anchor="middle" fill="#a78bfa" font-size="9">UTILITIES (3)</text>
+  <text x="385" y="257" text-anchor="middle" fill="#64748b" font-size="8">generate schema · ER diagram · validate SQL</text>
+
+  <rect x="217" y="280" width="336" height="28" rx="4" fill="#1e293b" stroke="#f87171" stroke-width="0.5"/>
+  <text x="385" y="298" text-anchor="middle" fill="#f87171" font-size="9">GOVERNANCE: query = read_only · execute/migrate = gated write · SELECT only by default</text>
+
+  <!-- Backends -->
+  <rect x="605" y="70" width="315" height="280" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="762" y="92" text-anchor="middle" fill="#94a3b8" font-size="10">BACKENDS</text>
+
+  <rect x="620" y="108" width="285" height="45" rx="6" fill="#334155" stroke="#34d399"/>
+  <text x="762" y="126" text-anchor="middle" fill="#34d399" font-size="10" font-weight="bold">Supabase (PostgreSQL)</text>
+  <text x="762" y="142" text-anchor="middle" fill="#64748b" font-size="8">SUPABASE_URL + SUPABASE_SERVICE_KEY</text>
+
+  <rect x="620" y="161" width="285" height="45" rx="6" fill="#334155" stroke="#60a5fa"/>
+  <text x="762" y="179" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="bold">PlanetScale (MySQL)</text>
+  <text x="762" y="195" text-anchor="middle" fill="#64748b" font-size="8">PLANETSCALE_URL + PLANETSCALE_TOKEN</text>
+
+  <rect x="620" y="214" width="285" height="45" rx="6" fill="#334155" stroke="#a78bfa"/>
+  <text x="762" y="232" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="bold">Neon (PostgreSQL Serverless)</text>
+  <text x="762" y="248" text-anchor="middle" fill="#64748b" font-size="8">NEON_API_URL + NEON_API_KEY</text>
+
+  <rect x="620" y="267" width="285" height="45" rx="6" fill="#334155" stroke="#fb923c"/>
+  <text x="762" y="285" text-anchor="middle" fill="#fb923c" font-size="10" font-weight="bold">Custom API</text>
+  <text x="762" y="301" text-anchor="middle" fill="#64748b" font-size="8">DATABASE_API_URL — wraps any DB (Postgres, MySQL, Mongo, SQLite)</text>
+
+  <text x="480" y="405" text-anchor="middle" fill="#475569" font-size="10">mcp-database v1.0.0 · 22 tools · Schema + Query + Migrations + Performance · Read-only by default</text>
+</svg>
