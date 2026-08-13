@@ -30,7 +30,7 @@ fn r(result: Result<serde_json::Value, anyhow::Error>) -> String {
     match result { Ok(v) => serde_json::to_string_pretty(&v).unwrap(), Err(e) => format!("Error: {}", e) }
 }
 
-#[tool_router(server_handler)]
+#[tool_router]
 impl DbServer {
     // === Schema Inspection (6) ===
 
@@ -166,4 +166,11 @@ impl DbServer {
     async fn validate_sql(&self, Parameters(input): Parameters<ExplainInput>) -> String {
         r(self.backend.post("/query/validate", &json!({"sql": input.sql})).await)
     }
+}
+
+adk_mcp_sdk::mcp_2026_server! {
+    server: DbServer,
+    task_tools: ["create_index", "run_migration", "get_index_usage", "generate_schema"],
+    approval_tools: ["execute", "create_index"],
+    cache_ttl_ms: 60_000,
 }

@@ -1,0 +1,165 @@
+server_id = "mcp_database"
+display_name = "Database"
+version = "1.1.0"
+domain = "database"
+sdk_version = "0.2.0"
+risk_level = "medium"
+writes_allowed = "gated"
+transports = ["stdio"]
+credentials = []
+governance_gates = ["mrtr_approval"]
+environments = ["development", "staging", "production"]
+
+[[tools]]
+name = "list_tables"
+description = "List all tables/collections in the database"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "describe_table"
+description = "Get table schema: columns, types, constraints, indexes"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_relationships"
+description = "Get foreign key relationships for a table"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "list_indexes"
+description = "List all indexes on a table"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_database_stats"
+description = "Get database size, table sizes, and row counts"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "search_schema"
+description = "Search for tables or columns by name"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "query"
+description = "Execute a read-only SQL query (SELECT only)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "sample_data"
+description = "Get sample rows from a table"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "filter_table"
+description = "Query a table with filters, ordering, and pagination"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "explain_query"
+description = "Get EXPLAIN/query plan for a SQL statement"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_column_stats"
+description = "Get distinct values and counts for a column (useful for exploration)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "execute"
+description = "Execute a write SQL statement (INSERT, UPDATE, DELETE) — requires confirmation"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = []
+
+[[tools]]
+name = "create_index"
+description = "Create an index on a table"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = []
+
+[[tools]]
+name = "run_migration"
+description = "Run a migration (create/alter tables)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "list_migrations"
+description = "List migration history (applied migrations)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_slow_queries"
+description = "Get slow queries (queries exceeding duration threshold)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_connections"
+description = "Get active connections and running queries"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_maintenance_status"
+description = "Get table bloat and vacuum recommendations"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_index_usage"
+description = "Get index usage stats — find unused or missing indexes"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "generate_schema"
+description = "Generate CREATE TABLE SQL from a description"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_er_diagram"
+description = "Get ER diagram data (tables + relationships)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "validate_sql"
+description = "Validate SQL syntax without executing"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
